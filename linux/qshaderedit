@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -d "$HOME/qshaderedit" ];
+then
+    exec qshaderedit.bin "$@"
+else
+    echo -en "\033[31;1mCopy data\33[0m\n"
+
+    mkdir $HOME/qshaderedit
+    cp -r /usr/share/qshaderedit/library $HOME/qshaderedit
+    cp -r /usr/share/qshaderedit/styles $HOME/qshaderedit
+    cp /usr/share/qshaderedit/COPYING $HOME/qshaderedit
+    cp /usr/share/applications/qshaderedit.desktop $HOME/qshaderedit
+
+    exec qshaderedit.bin "$@"
+fi

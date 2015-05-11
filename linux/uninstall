@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -d "$HOME/qshaderedit" ];
+then
+    rm -r $HOME/qshaderedit
+fi
+sudo rm -r /usr/share/qshaderedit
+sudo rm /usr/share/applications/qshaderedit.desktop
+
+echo -en "\033[92m Remove data succesfully\033[0m\n"
+
